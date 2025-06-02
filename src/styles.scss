@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./styles/variables" as *;
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #f8f8fb;
+  --color-surface: #ffffff;
+  --color-text: #0c0e16;
+  --color-muted: #888eb0;
+  --color-border: #dfe3fa;
+  --color-accent: #7c5dfa;
+  --color-button: #9277ff;
+  --color-success: #33d69f;
+  --color-error: #ec5757;
+  --color-warning: #ff8f00;
+}
+
+.dark-theme {
+  --color-bg: #141625;
+  --color-surface: #1e2139;
+  --color-text: #ffffff;
+  --color-muted: #888eb0;
+  --color-border: #252945;
+  --color-accent: #7c5dfa;
+  --color-button: #9277ff;
+  --color-success: #33d69f;
+  --color-error: #ec5757;
+  --color-warning: #ff8f00;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
