@@ -1,0 +1,77 @@
+// Font family
+$font-family-base: 'Spartan', sans-serif;
+
+// Font weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Font sizes
+$font-size-h1: 32px;
+$font-size-h2: 20px;
+$font-size-h3: 16px;
+$font-size-h4: 12px;
+
+$font-size-body-1: 12px;
+$font-size-body-2: 11px;
+
+// Line heights
+$line-height-h1: 36px;
+$line-height-h2: 22px;
+$line-height-h3: 24px;
+$line-height-h4: 15px;
+
+$line-height-body-1: 15px;
+$line-height-body-2: 18px;
+
+// Letter spacing
+$letter-spacing-h1: -1px;
+$letter-spacing-h2: -0.63px;
+$letter-spacing-h3: -0.8px;
+$letter-spacing-h4: -0.25px;
+
+$letter-spacing-body-1: -0.25px;
+$letter-spacing-body-2: -0.23px;
+
+h1, .heading-1 {
+  font-family: $font-family-base;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-h1;
+  line-height: $line-height-h1;
+  letter-spacing: $letter-spacing-h1;
+}
+
+h2, .heading-2 {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-h2;
+  line-height: $line-height-h2;
+  letter-spacing: $letter-spacing-h2;
+}
+
+h3, .heading-3 {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-h3;
+  line-height: $line-height-h3;
+  letter-spacing: $letter-spacing-h3;
+}
+
+h4, .heading-4 {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-h4;
+  line-height: $line-height-h4;
+  letter-spacing: $letter-spacing-h4;
+}
+
+.body-1 {
+  font-weight: $font-weight-medium;
+  font-size: $font-size-body-1;
+  line-height: $line-height-body-1;
+  letter-spacing: $letter-spacing-body-1;
+}
+
+.body-2 {
+  font-weight: $font-weight-medium;
+  font-size: $font-size-body-2;
+  line-height: $line-height-body-2;
+  letter-spacing: $letter-spacing-body-2;
+}
