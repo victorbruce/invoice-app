@@ -2,7 +2,7 @@
 
 An invoice app built with Angular.
 
-Live URL: [link](some url)
+Live URL: [vb-invoice-app.netlify.app](https://vb-invoice-app.netlify.app/)
 
 ## 📌 Table of Contents
 
@@ -29,8 +29,8 @@ This project is built using Angular, SCSS, Typescript and hosted on Netlify.
 Clone the repository and run the command:
 
 ```sh
-git clone <project>
-cd <project>
+git clone https://github.com/victorbruce/invoice-app
+cd invoice-app
 ```
 Now, run the command:
 `npm install` to install all the dependencies for the application
