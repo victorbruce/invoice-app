@@ -1,4 +1,6 @@
 @use "./styles/variables" as *;
+@use './styles/typography' as *;
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
 
 *,
 ::after,
@@ -37,5 +39,6 @@
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
+  font-family: $font-family-base;
   transition: background-color 0.3s ease, color 0.3s ease;
 }

@@ -16,6 +16,7 @@ Live URL: [vb-invoice-app.netlify.app](https://vb-invoice-app.netlify.app/)
 - [👤 Author](#-author)
 
 ## 🚀 Getting Started
+
 This project is built using Angular, SCSS, Typescript and hosted on Netlify.
 
 ## 🛠️ Tech Stack
@@ -26,12 +27,14 @@ This project is built using Angular, SCSS, Typescript and hosted on Netlify.
 - Jest
 
 ## 📦 Setup & Run Instructions
+
 Clone the repository and run the command:
 
 ```sh
 git clone https://github.com/victorbruce/invoice-app
 cd invoice-app
 ```
+
 Now, run the command:
 `npm install` to install all the dependencies for the application
 
@@ -99,18 +102,26 @@ ng test
 - Next, I updated the `README.md` docs to contain all valuable information such as how to **start** and **run** the project.
 - Finally, I committed my changes to **GitHub** and hosted the project on **Netlify**
 
+**Applying Global Styles**
+
+- I imported global styles into the Angular component stylesheets by first enabling Angular components to access global SCSS variables and mixins.
+
 **Component Structure**
 
 Inside **src/app/** we have:
+
 - `core/`: contains app-wide **services**, **interceptors**, etc.
 
 - `shared/`: contains **reusable** components, directives, pipes
 
 Inside **/src/** we have:
-- `styles`: contains organized **shared SCSS** 
+
+- `styles`: contains organized **shared SCSS**
 
 ## 🚀 Deployment
+
 Netlify
 
 ## 👤 Author
+
 Victor Bruce
