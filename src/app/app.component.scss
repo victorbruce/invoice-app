@@ -1,1 +1,11 @@
-@use '../styles/variables' as *;
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.app-content {
+  max-width: 730px;
+  margin: auto;
+  padding: 1.5rem;
+
+  @include respond-above($breakpoint-lg) {
+  }
+}
