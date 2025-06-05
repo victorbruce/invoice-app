@@ -200,7 +200,7 @@
       @include button-reset;
     }
 
-    @include respond-below($breakpoint-md) {
+    @include respond-below($breakpoint-sm) {
       display: none;
     }
   }
