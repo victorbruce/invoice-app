@@ -1,0 +1,16 @@
+@mixin smooth-color-transition {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// responsive media query
+@mixin respond-above($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin respond-below($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}

@@ -4,6 +4,7 @@ $color-purple-light: #9277FF;
 $color-gray-dark: #252945;
 $color-gray-darker: #1E2139;
 $color-gray-darkest: #141625;
+$color-blue-dark: #373B53;
 
 $color-black: #0C0E16;
 $color-white: #FFFFFF;
@@ -23,3 +24,9 @@ $text-main: $color-black;
 $text-muted: $color-slate-blue;
 $surface: $color-white;
 $border: $color-lavender-ice;
+
+
+// breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
