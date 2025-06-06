@@ -2,7 +2,7 @@
   <div class="invoices__header">
     <div>
       <h1>Invoices</h1>
-      <p>7 invoices</p>
+      <p>{{ totalInvoices }} invoices</p>
     </div>
 
     <div class="header-btns">
@@ -19,29 +19,30 @@
   </div>
 
   <section class="cards">
-    <div class="invoice-card">
+    <!-- i will extract this later into a card component -->
+    <div class="invoice-card" *ngFor="let invoice of invoices">
       <div class="invoice-card__header">
-        <h3><span>#</span>&nbsp;RT3080</h3>
-        <p>Jensen Huang</p>
+        <h3><span>#</span>&nbsp;{{ invoice.id }}</h3>
+        <p>{{ invoice.clientName }}</p>
       </div>
       <div class="invoice-card__content">
         <div class="invoice-card__info">
-          <p class="date">Due 19 Aug 2021</p>
-          <p class="amount">£ 1,800.90</p>
+          <p class="date">{{ invoice.paymentDue | formatDate }}</p>
+          <p class="amount">{{ invoice.total | currency : "GBP" }}</p>
         </div>
-        <span class="invoice-card__status"
-          ><div></div>
-          Paid</span
+        <span class="status-badge" [ngClass]="'status-badge--' + invoice.status"
+          ><div class="dot"></div>
+          {{ invoice.status | capitalize }}</span
         >
       </div>
       <div class="invoice-card__row">
-        <h3><span class="id">#</span>&nbsp;RT3080</h3>
-        <p class="date">Due 19 Aug 2021</p>
-        <p class="name">Jensen Huang</p>
-        <p class="amount">£ 1,800.90</p>
-        <span class="status"
-          ><div></div>
-          Paid</span
+        <h3><span class="id">#</span>&nbsp;{{ invoice.id }}</h3>
+        <p class="date">Due {{ invoice.createdAt | formatDate }}</p>
+        <p class="name">{{ invoice.clientName }}</p>
+        <p class="amount">{{ invoice.total | currency : "GBP" }}</p>
+        <span class="status-badge" [ngClass]="'status-badge--' + invoice.status"
+          ><div class="dot"></div>
+          {{ invoice.status | capitalize }}</span
         >
         <button class="more">
           <img

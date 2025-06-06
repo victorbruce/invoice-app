@@ -146,7 +146,8 @@
   }
 
   &__row {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr) 4px;
     align-items: center;
     justify-content: space-between;
 
@@ -157,6 +158,7 @@
     & .date {
       font-size: $font-size-body-1;
       color: var(--color-card-text-muted);
+      text-wrap: nowrap;
     }
 
     & h3 {
@@ -175,25 +177,6 @@
       font-size: $font-size-h3;
       font-weight: bold;
       color: var(--color-text);
-    }
-
-    & .status {
-      font-size: $font-size-body-1;
-      font-weight: bold;
-      color: var(--color-success);
-      background-color: #33d6a01c;
-      padding: 13px 30px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-
-      & div {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background-color: var(--color-success);
-      }
     }
 
     & .more {
