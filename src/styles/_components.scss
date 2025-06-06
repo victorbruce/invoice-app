@@ -27,3 +27,37 @@
     background-color: $secondary;
   }
 }
+
+.status-badge {
+  font-size: $font-size-body-1;
+  font-weight: bold;
+  padding: 13px 0px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 104px;
+
+  &--paid {
+    background-color: var(--color-success-bg);
+    color: var(--color-success);
+  }
+
+  &--pending {
+    background-color: var(--color-warning-bg);
+    color: var(--color-warning);
+  }
+
+  &--draft {
+    background-color: var(--color-draft-bg);
+    color: var(--color-draft);
+  }
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
