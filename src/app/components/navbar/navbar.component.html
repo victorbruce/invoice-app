@@ -1,21 +1,21 @@
 <nav class="nav">
   <div class="nav__container">
     <a routerLink="/" class="nav__logo">
-      <img src="logo.svg" alt="invoice app logo" />
+      <img src="assets/images/logo.svg" alt="invoice app logo" />
     </a>
     <div class="nav__btns">
       <button class="theme-btn" (click)="toggleTheme()">
         <img
           *ngIf="isDark(); else lightIcon"
-          src="icon-sun.svg"
+          src="assets/images/icon-sun.svg"
           alt="Switch to light mode"
         />
         <ng-template #lightIcon>
-          <img src="icon-moon.svg" alt="Switch to dark mode" />
+          <img src="assets/images/icon-moon.svg" alt="Switch to dark mode" />
         </ng-template>
       </button>
       <div>
-        <img class="nav__profile-icon" src="image-avatar.jpg" alt="profile" />
+        <img class="nav__profile-icon" src="assets/images/image-avatar.jpg" alt="profile" />
       </div>
     </div>
   </div>
