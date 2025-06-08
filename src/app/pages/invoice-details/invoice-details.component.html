@@ -10,7 +10,7 @@
   <!-- mobie display only -->
   <div *ngIf="isMobile$ | async" class="mobile-action-btns">
     <button class="btn btn__edit">Edit</button>
-    <button class="btn btn__delete">Delete</button>
+    <button class="btn btn__delete" (click)="showConfirmModal = true">Delete</button>
     <button class="btn btn__paid">Mark as Paid</button>
   </div>
   <header>
@@ -25,7 +25,9 @@
       </div>
       <div class="action-btns">
         <button class="btn btn__edit">Edit</button>
-        <button class="btn btn__delete">Delete</button>
+        <button class="btn btn__delete" (click)="showConfirmModal = true">
+          Delete
+        </button>
         <button class="btn btn__paid">Mark as Paid</button>
       </div>
     </div>
@@ -125,4 +127,16 @@
       </div>
     </div>
   </div>
+  <app-confirm-modal
+    *ngIf="showConfirmModal"
+    [title]="'Confirm Deletion'"
+    [message]="
+      'Are you sure you want to delete invoice #' +
+      invoice?.id +
+      '? This
+  action cannot be undone.'
+    "
+    (confirm)="onDelete()"
+    (cancel)="showConfirmModal = false"
+  />
 </section>
