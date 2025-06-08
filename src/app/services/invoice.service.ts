@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable, switchMap, throwError } from 'rxjs';
 import { Invoice } from '../core/models/invoice.model';
 
 @Injectable({
@@ -13,6 +13,21 @@ export class InvoiceService {
 
   getInvoices(): Observable<Invoice[]> {
     return this.http.get<Invoice[]>(this.dataUrl);
+  }
+
+  getInvoiceById(id: string): Observable<Invoice | undefined> {
+    return this.http.get<Invoice[]>(this.dataUrl).pipe(
+      switchMap((invoices: Invoice[]) => {
+        const invoice = invoices.find((inv) => inv.id === id);
+
+        return invoice
+          ? new Observable<Invoice>((obs) => {
+              obs.next(invoice);
+              obs.complete();
+            })
+          : throwError(() => new Error(`Invoice with ID ${id} not found`));
+      })
+    );
   }
 
   addInvoice(invoice: Invoice) {}
