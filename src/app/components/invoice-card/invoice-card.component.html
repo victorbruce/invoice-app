@@ -1,0 +1,33 @@
+<div class="invoice-card" (click)="handleCardClick($event)">
+  <div class="invoice-card__header">
+    <h3><span>#</span>&nbsp;{{ invoice.id }}</h3>
+    <p>{{ invoice.clientName }}</p>
+  </div>
+  <div class="invoice-card__content">
+    <div class="invoice-card__info">
+      <p class="date">{{ invoice.paymentDue | formatDate }}</p>
+      <p class="amount">{{ invoice.total | currency : "GBP" }}</p>
+    </div>
+    <span class="status-badge" [ngClass]="'status-badge--' + invoice.status"
+      ><div class="dot"></div>
+      {{ invoice.status | capitalize }}</span
+    >
+  </div>
+  <div class="invoice-card__row">
+    <h3><span class="id">#</span>&nbsp;{{ invoice.id }}</h3>
+    <p class="date">Due {{ invoice.createdAt | formatDate }}</p>
+    <p class="name">{{ invoice.clientName }}</p>
+    <p class="amount">{{ invoice.total | currency : "GBP" }}</p>
+    <span class="status-badge" [ngClass]="'status-badge--' + invoice.status"
+      ><div class="dot"></div>
+      {{ invoice.status | capitalize }}</span
+    >
+    <button class="more" (click)="navigateToDetails($event)">
+      <img
+        src="assets/images/icon-arrow-right.svg"
+        alt="right caret"
+        aria-hidden="true"
+      />
+    </button>
+  </div>
+</div>

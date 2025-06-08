@@ -1,0 +1,129 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.invoice-card {
+  background-color: var(--color-surface);
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid var(--color-card-border);
+    cursor: pointer;
+  }
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    font-size: $font-size-body-1;
+
+    @include respond-above($breakpoint-sm) {
+      display: none;
+    }
+
+    & span {
+      color: #7e88c3;
+    }
+
+    & h3 {
+      font-size: $font-size-body-1;
+    }
+
+    & p {
+      color: var(--color-card-text-muted);
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include respond-above($breakpoint-sm) {
+      display: none;
+    }
+
+    & .date {
+      font-size: $font-size-body-1;
+      color: var(--color-card-text-muted);
+    }
+
+    & .amount {
+      font-size: $font-size-h3;
+      font-weight: bold;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__status {
+    font-size: $font-size-body-1;
+    font-weight: bold;
+    color: var(--color-success);
+    background-color: #33d6a01c;
+    padding: 13px 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    & div {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--color-success);
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr) 4px;
+    align-items: center;
+    justify-content: space-between;
+
+    & span.id {
+      color: #7e88c3;
+    }
+
+    & .date {
+      font-size: $font-size-body-1;
+      color: var(--color-card-text-muted);
+      text-wrap: nowrap;
+    }
+
+    & h3 {
+      font-size: $font-size-body-1;
+    }
+
+    & p {
+      color: var(--color-card-text-muted);
+    }
+
+    & .name {
+      font-size: $font-size-body-1;
+    }
+
+    & .amount {
+      font-size: $font-size-h3;
+      font-weight: bold;
+      color: var(--color-text);
+    }
+
+    & .more {
+      @include button-reset;
+    }
+
+    @include respond-below($breakpoint-sm) {
+      display: none;
+    }
+  }
+}
