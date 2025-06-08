@@ -1,4 +1,4 @@
-enum InvoiceStatus {
+export enum InvoiceStatus {
   Paid = 'paid',
   Pending = 'pending',
 }
@@ -6,7 +6,7 @@ enum InvoiceStatus {
 type Address = {
   street: string;
   city: string;
-  postcode: string;
+  postCode: string;
   country: string;
 };
 
