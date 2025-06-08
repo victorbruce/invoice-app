@@ -1,0 +1,30 @@
+<div class="dropdown" [class.open]="dropdownOpen">
+  <button (click)="toggleDropDown()" class="dropdown__button">
+    {{ buttonLabel }}
+    <img
+      src="{{
+        dropdownOpen
+          ? 'assets/images/icon-arrow-up.svg'
+          : 'assets/images/icon-arrow-down.svg'
+      }}"
+      alt="arrow"
+      aria-hidden="true"
+    />
+  </button>
+  <div
+    class="dropdown__menu"
+    [class.open]="dropdownOpen"
+    [hidden]="!dropdownOpen"
+  >
+    <label *ngFor="let option of options">
+      <input
+        type="checkbox"
+        [checked]="isSelected(option)"
+        (change)="toggleOption(option)"
+        name="{{ option }}"
+      />
+      <span class="checkmark"></span>
+      {{ option | capitalize }}
+    </label>
+  </div>
+</div>
