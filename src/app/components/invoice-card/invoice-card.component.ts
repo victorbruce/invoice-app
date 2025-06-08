@@ -21,10 +21,6 @@ export class InvoiceCardComponent {
   }
 
   handleCardClick(event: MouseEvent) {
-    const isMobile = window.innerWidth < 768;
-
-    if (isMobile) {
-      this.router.navigate(['/invoices', this.invoice.id]);
-    }
+     this.router.navigate(['/invoices', this.invoice.id]);
   }
 }
