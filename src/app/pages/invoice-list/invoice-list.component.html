@@ -2,7 +2,26 @@
   <div class="invoices__header">
     <div>
       <h1>Invoices</h1>
-      <p>{{ filteredInvoices.length }} invoices</p>
+      <p *ngIf="isMobile">
+        {{ filteredInvoices.length ? filteredInvoices.length : "No" }} invoices
+      </p>
+      <p *ngIf="!isMobile">
+        <ng-container *ngIf="filteredInvoices.length > 0; else noInvoices">
+          <ng-container
+            *ngIf="
+              selectedStatuses.length === 1 && selectedStatuses[0] !== 'all';
+              else totalInvoices
+            "
+          >
+            There are {{ filteredInvoices.length }}
+            {{ selectedStatuses[0] }} invoices
+          </ng-container>
+          <ng-template #totalInvoices>
+            There are {{ filteredInvoices.length }} total invoices
+          </ng-template>
+        </ng-container>
+        <ng-template #noInvoices>No invoices</ng-template>
+      </p>
     </div>
 
     <div class="header-btns">
@@ -13,7 +32,7 @@
         (selectedOptionsChange)="onStatusChange($event)"
       ></app-drop-down>
       <button class="btn-new btn btn__default">
-        <img src="assets/images/icon-plus.svg" />
+        <img src="assets/images/icon-plus.svg" alt="add icon" aria-hidden="true" />
         {{ isMobile ? "New" : "New Invoice" }}
       </button>
     </div>
