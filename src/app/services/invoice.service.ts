@@ -17,6 +17,13 @@ export class InvoiceService {
     this.loadInvoices();
   }
 
+  private generateId(): string {
+    const random = Math.floor(Math.random() * 1000000)
+      .toString(36)
+      .toUpperCase();
+    return `XM${random}`;
+  }
+
   private loadInvoices(): void {
     const stored = localStorage.getItem('invoices');
 
@@ -41,7 +48,12 @@ export class InvoiceService {
     );
   }
 
-  addInvoice(invoice: Invoice) {}
+  addInvoice(invoice: Invoice) {
+    const current = this.invoicesSubject.getValue();
+    const updated = [...current, { ...invoice, id: this.generateId() }];
+    this.invoicesSubject.next(updated);
+    localStorage.setItem('invoices', JSON.stringify(updated));
+  }
 
   updateInvoice(invoiceId: string, data: Invoice) {}
 
