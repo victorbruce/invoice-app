@@ -1,0 +1,141 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.modal-overlay {
+  background-color: var(--color-bg);
+  position: fixed;
+  top: 73px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  overflow-y: auto;
+
+  @include respond-above($breakpoint-sm) {
+    left: 72px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+.invoice-modal {
+  padding: 1.5rem;
+  z-index: 1000;
+  overflow-y: auto;
+
+  @include respond-above($breakpoint-sm) {
+    width: 100%;
+    max-width: 720px;
+    height: 100%;
+    background-color: var(--color-surface);
+    padding: 2rem;
+    animation: slideIn 0.3s ease forwards;
+  }
+
+  & .back-btn {
+    color: var(--color-text);
+    text-decoration: none;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-weight: bold;
+    @include smooth-color-transition;
+    margin-bottom: 1.5rem;
+
+    & :hover {
+      color: var(--color-muted);
+    }
+  }
+
+  & h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .caption {
+    color: var(--color-accent);
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-inline-size: unset;
+  }
+
+  .row-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @include respond-above($breakpoint-sm) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .add-item {
+    background-color: var(--color-receipt-bg);
+    color: var(--color-secondary);
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    // gap: 1rem;
+
+    & > div {
+      display: flex;
+      // gap: 1rem;
+      gap: 8px;
+    }
+
+    .btn {
+      &__save {
+        background-color: var(--color-accent);
+        color: #fff;
+      }
+
+      &__draft {
+        background-color: #373b53;
+        color: #fff;
+      }
+
+      &__discard {
+        background-color: #252945;
+        color: #fff;
+      }
+    }
+    .btn__discard:hover {
+      background-color: #f9fafe;
+      color: #252945;
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+form {
+  h2 {
+    color: var(--color-text);
+    font-size: 24px;
+  }
+}

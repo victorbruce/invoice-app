@@ -1,0 +1,7 @@
+<div class="form-group" [class.invalid]="control.invalid && control.touched">
+  <label>{{ label }}</label>
+  <input type="date" [formControl]="control" />
+  <div class="error" *ngIf="control.invalid && control.touched">
+    <small *ngIf="control.errors?.['required']">This field is required.</small>
+  </div>
+</div>

@@ -61,3 +61,45 @@
   border-radius: 50%;
   background-color: currentColor;
 }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+
+  & label {
+    color: var(--color-secondary-text);
+    font-weight: 500;
+  }
+
+  & input {
+    width: 100%;
+    min-width: 0;
+    font-weight: bold;
+    padding: 1rem 1.25rem;
+    border-radius: 4px;
+    background-color: var(--color-input-bg);
+    color: var(--color-text);
+    outline: none;
+    border: 1px solid var(--color-border);
+  }
+
+  .error {
+    color: var(--color-error);
+  }
+
+  input[type="date"] {
+    background-color: #252945;
+    color: #dfe3fa;
+    border: 1px solid #7c5dfa;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+
+    &:focus {
+      outline: none;
+      border-color: #7c5dfa;
+      box-shadow: 0 0 0 2px rgba(124, 93, 250, 0.3);
+    }
+  }
+}

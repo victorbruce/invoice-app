@@ -5,12 +5,23 @@ import { NewInvoiceFormComponent } from './pages/new-invoice-form/new-invoice-fo
 import { EditInvoiceFormComponent } from './pages/edit-invoice-form/edit-invoice-form.component';
 
 export const routes: Routes = [
-  { path: '', component: InvoiceListComponent, title: 'Invoices' },
   {
-    path: 'invoices/new',
-    component: NewInvoiceFormComponent,
-    title: 'New Invoice Page',
+    path: '',
+    component: InvoiceListComponent,
+    title: 'Invoices',
+    children: [
+      {
+        path: 'add',
+        component: NewInvoiceFormComponent,
+        outlet: 'modal',
+      },
+    ],
   },
+  // {
+  //   path: 'invoices/new',
+  //   component: NewInvoiceFormComponent,
+  //   title: 'New Invoice Page',
+  // },
   {
     path: 'invoices/:id',
     component: InvoiceDetailsComponent,
