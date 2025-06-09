@@ -47,12 +47,6 @@ export class InvoiceService {
     );
   }
 
-  getInvoiceById(id: string): Observable<Invoice | undefined> {
-    return this.invoices$.pipe(
-      map((invoices) => invoices.find((invoice) => invoice.id === id))
-    );
-  }
-
   addInvoice(invoice: Invoice) {
     const current = this.invoicesSubject.getValue();
     const updated = [...current, { ...invoice, id: this.generateId() }];
