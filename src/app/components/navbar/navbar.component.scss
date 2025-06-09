@@ -5,11 +5,12 @@
   background-color: $color-blue-dark;
   width: 100%;
   height: 72px;
+  position:fixed;
+  z-index: 2000;
 
   @include respond-above($breakpoint-lg) {
     width: 72px;
     height: 100vh;
-    position: fixed;
     left: 0;
     top: 0;
     bottom: 0;

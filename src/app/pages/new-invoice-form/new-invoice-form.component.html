@@ -1,1 +1,95 @@
-<p>new-invoice-form works!</p>
+<div class="add-invoice">
+  <div class="modal-overlay">
+    <div class="invoice-modal">
+      <a href="/" class="back-btn">
+        <img
+          src="assets/images/icon-arrow-left.svg"
+          alt="left arrow"
+          aria-hidden="true"
+        />
+        Go back
+      </a>
+      <form
+        [formGroup]="invoiceForm"
+        (ngSubmit)="onSubmit()"
+        class="invoice-form"
+      >
+        <h2>New Invoice</h2>
+
+        <!-- Bill From -->
+        <fieldset formGroupName="senderAddress">
+          <legend class="caption">Bill From</legend>
+          <app-form-field [control]="senderStreet" label="Street Address" />
+          <div class="row">
+            <app-form-field [control]="senderCity" label="City" />
+            <app-form-field [control]="senderPostCode" label="Post Code" />
+            <app-form-field [control]="senderCountry" label="Country" />
+          </div>
+        </fieldset>
+
+        <!-- Bill To -->
+        <fieldset formGroupName="clientAddress">
+          <legend class="caption">Bill To</legend>
+          <app-form-field [control]="clientName" label="Client's Name" />
+          <app-form-field [control]="clientEmail" label="Client's Email" />
+          <app-form-field [control]="clientStreet" label="Street Address" />
+
+          <div class="row-3">
+            <app-form-field [control]="clientCity" label="City" />
+            <app-form-field [control]="clientPostCode" label="Post Code" />
+            <app-form-field [control]="clientCountry" label="Country" />
+          </div>
+        </fieldset>
+
+        <!-- Invoice Info -->
+        <div class="row-2">
+          <app-form-date [control]="invoiceDate" label="Invoice Date" />
+
+          <select formControlName="paymentTerms">
+            <option value="7">Net 7 Days</option>
+            <option value="14">Net 14 Days</option>
+            <option value="30">Net 30 Days</option>
+          </select>
+        </div>
+
+        <app-form-field [control]="description" label="Project Description" />
+
+        <app-invoice-items [items]="items" (itemRemoved)="removeItem($event)" />
+        <button type="button" class="add-item btn" (click)="addItem()">+ Add New Item</button>
+
+        <!-- Item List -->
+        <!-- <div formArrayName="items">
+          <div
+            *ngFor="let item of items.controls; let i = index"
+            [formGroupName]="i"
+            class="item-row"
+          >
+            <input formControlName="name" placeholder="Item Name" />
+            <input formControlName="quantity" type="number" placeholder="Qty" />
+            <input formControlName="price" type="number" placeholder="Price" />
+            <input formControlName="total" [disabled]="true" />
+            <button type="button" (click)="removeItem(i)">🗑</button>
+          
+          </div>
+        </div> -->
+
+        <!-- Actions -->
+        <div class="actions">
+          <button type="button" class="btn btn__discard" (click)="discard()">
+            Discard
+          </button>
+          <div>
+            <button
+              type="button"
+              class="btn btn__draft"
+              (click)="saveAsDraft()"
+            >
+              Save as Draft
+            </button>
+            <button type="submit" class="btn btn__save">Save & Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

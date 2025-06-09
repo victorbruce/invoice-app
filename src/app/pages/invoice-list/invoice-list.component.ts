@@ -4,10 +4,16 @@ import { InvoiceService } from '../../services/invoice.service';
 import { Invoice } from '../../core/models/invoice.model';
 import { DropDownComponent } from '../../components/drop-down/drop-down.component';
 import { InvoiceCardComponent } from '../../components/invoice-card/invoice-card.component';
+import { Router, RouterOutlet, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-invoice-list',
-  imports: [CommonModule, DropDownComponent, InvoiceCardComponent],
+  imports: [
+    RouterOutlet,
+    CommonModule,
+    DropDownComponent,
+    InvoiceCardComponent,
+  ],
   templateUrl: './invoice-list.component.html',
   styleUrl: './invoice-list.component.scss',
 })
@@ -16,6 +22,8 @@ export class InvoiceListComponent {
   invoiceService: InvoiceService = inject(InvoiceService);
   selectedStatuses: string[] = [];
   isMobile = false;
+  router: Router = inject(Router);
+  route: ActivatedRoute = inject(ActivatedRoute);
 
   constructor() {}
 
@@ -47,5 +55,11 @@ export class InvoiceListComponent {
 
   private updateDeviceType(): void {
     this.isMobile = window.innerWidth <= 768;
+  }
+
+  openAddInvoiceModal(): void {
+    this.router.navigate([{ outlets: { modal: ['add'] } }], {
+      relativeTo: this.route.parent,
+    });
   }
 }
