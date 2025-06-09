@@ -16,14 +16,13 @@ export class InvoiceService {
   constructor(private http: HttpClient) {
     this.loadInvoices();
   }
-
+  
   private generateId(): string {
     const random = Math.floor(Math.random() * 1000000)
       .toString(36)
       .toUpperCase();
     return `XM${random}`;
   }
-
   private loadInvoices(): void {
     const stored = localStorage.getItem('invoices');
 
@@ -40,6 +39,12 @@ export class InvoiceService {
 
   getInvoices(): Observable<Invoice[]> {
     return this.invoices$;
+  }
+
+  getInvoiceById(id: string): Observable<Invoice | undefined> {
+    return this.invoices$.pipe(
+      map((invoices) => invoices.find((invoice) => invoice.id === id))
+    );
   }
 
   getInvoiceById(id: string): Observable<Invoice | undefined> {
