@@ -1,0 +1,13 @@
+<div formArrayName="items">
+  <div
+    *ngFor="let item of items.controls; let i = index"
+    [formGroupName]="i"
+    class="item-row"
+  >
+    <input formControlName="name" placeholder="Item Name" />
+    <input formControlName="quantity" type="number" placeholder="Qty" />
+    <input formControlName="price" type="number" placeholder="Price" />
+    <input formControlName="total" placeholder="Total" [disabled]="true" />
+    <button type="button" (click)="removeItem(i)">🗑</button>
+  </div>
+</div>
