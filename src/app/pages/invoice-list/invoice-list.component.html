@@ -31,8 +31,12 @@
         [selectedOptions]="selectedStatuses"
         (selectedOptionsChange)="onStatusChange($event)"
       ></app-drop-down>
-      <button class="btn-new btn btn__default">
-        <img src="assets/images/icon-plus.svg" alt="add icon" aria-hidden="true" />
+      <button class="btn-new btn btn__default" (click)="openAddInvoiceModal()">
+        <img
+          src="assets/images/icon-plus.svg"
+          alt="add icon"
+          aria-hidden="true"
+        />
         {{ isMobile ? "New" : "New Invoice" }}
       </button>
     </div>
@@ -60,4 +64,5 @@
       </div>
     </div>
   </ng-template>
+  <router-outlet name="modal"></router-outlet>
 </section>
